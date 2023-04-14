@@ -12,6 +12,7 @@ import com.example.autoplayer.adapter.VideoPlayerRecyclerAdapter
 import com.example.autoplayer.databinding.ActivityMainBinding
 import com.example.autoplayer.model.MediaObject
 import com.example.autoplayer.model.Resources
+import com.example.autoplayer.utils.VerticalSpacingItemDecorator
 import java.util.*
 
 
@@ -28,8 +29,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRecyclerView() {
         binding.recyclerView.layoutManager =  LinearLayoutManager(this)
-//        val itemDecorator = VerticalSpacingItemDecorator(10)
-        binding.recyclerView.addItemDecoration(DividerItemDecoration(this,LinearLayoutManager.VERTICAL))
+        val itemDecorator = VerticalSpacingItemDecorator(20)
+//        binding.recyclerView.addItemDecoration(DividerItemDecoration(this,LinearLayoutManager.VERTICAL))
+        binding.recyclerView.addItemDecoration(itemDecorator)
 
         val mediaObjects: ArrayList<MediaObject> = Resources.MEDIA_OBJECTS
         binding.recyclerView.setMediaObjects(mediaObjects)
